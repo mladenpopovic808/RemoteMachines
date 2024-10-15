@@ -3,6 +3,7 @@
 
 
 The Vacuum Cleaner Management Application is a Spring Boot-based project designed to manage vacuum cleaners. It provides functionalities such as adding, creating, and starting vacuum cleaners. The application also uses a scheduler to automate the starting of vacuum cleaners at specified times. 
+Full specification : https://drive.google.com/drive/folders/156SOh9OsiJmpEUzXfe87-HmVXwKiX537?usp=sharing
 
 ## Features
 - User registration and management
