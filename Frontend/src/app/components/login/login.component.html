@@ -1,0 +1,29 @@
+
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Login
+        </div>
+        <div class="card-body">
+
+
+            <div class="form-group">
+              <label for="emailInput">Email:</label>
+              <input [(ngModel)]="email" type="text" id="emailInput" class="form-control" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input [(ngModel)]="password" type="password" id="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            <button (click)="login()" type="submit" class="btn btn-primary btn-block mt-4" >Login</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

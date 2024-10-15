@@ -1,0 +1,42 @@
+<h5>Edit User Page</h5>
+
+<div>
+
+  <div class="form-group mb-2">
+    <label for="name">Name:</label>
+    <input [(ngModel)]="user.name" type="text" class="form-control" id="name" name="name" placeholder="Enter the user's name">
+    <br>
+
+    <label for="lastname">Last name:</label>
+    <input [(ngModel)]="user.lastName" type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter the user's lastname ">
+    <br>
+    <label for="mail">Email address:</label>
+    <input [(ngModel)]="user.email" type="mail" class="form-control" id="mail" name="mail" placeholder="Enter the user's mail address'">
+    <br>
+
+    <!-- Permisije-->
+    <div class="form-check">
+      <label class="form-check-label" for="check1">CAN_READ_USERS</label>
+      <input [(ngModel)]="canReadRole" type="checkbox" class="form-check-input" value="CAN_READ_USERS" id="check1">
+    </div>
+
+    <div class="form-check">
+      <label class="form-check-label" for="check2">CAN-UPDATE-USERS</label>
+      <input [(ngModel)]="canUpdateRole" type="checkbox" class="form-check-input" value="CAN_UPDATE_USERS" id="check2">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="check3">CAN_DELETE_USERS</label>
+      <input [(ngModel)]="canDeleteRole" type="checkbox"  class="form-check-input" value="CAN_DELETE_USERS" id="check3">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="check4">CAN_CREATE_USERS</label>
+      <input [(ngModel)]="canCreateRole" type="checkbox"  class="form-check-input" value="CAN_CREATE_USERS" id="check4">
+    </div>
+
+    <br>
+    <button class="btn-primary btn " (click)="saveUser()">Save User</button>
+    <button class="btn-primary btn" (click)="deleteUser()" style="margin-left: 10px">Delete User</button>
+  </div>
+</div>
+
+

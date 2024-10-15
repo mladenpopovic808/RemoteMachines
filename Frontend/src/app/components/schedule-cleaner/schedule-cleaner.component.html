@@ -1,0 +1,39 @@
+<h2>Schedule cleaner</h2>
+
+<p><b>Id: </b> {{ cleaner.id }}</p>
+<p><b>Name: </b> {{ cleaner.name }}</p>
+<p><b>In-System: </b> {{ cleaner.active }}</p>
+<p><b>Status </b>: {{ cleaner.status }}</p>
+<p><b>CreationDate</b>: {{ cleaner.creationDate }}</p>
+<p><b>User </b>: {{ cleaner.user.email }}</p>
+<div>
+  <label class="p-2" for="actionDropdown">Select Action:</label>
+  <select id="actionDropdown" [(ngModel)]="scheduleRequest.action" name="action">
+    <option *ngFor="let item of dropdownItems" [value]="item">{{ item }}</option>
+  </select>
+  <br><br>
+
+
+    <label for="dateFrom">Date from:</label>
+    <input  type="date" class="form-control" id="dateFrom" name="dateFrom" placeholder="Pick date from"
+            [(ngModel)]="scheduleRequest.date">
+
+
+  <div>
+    <label for="time">Time:</label>
+    <input type="time" class="form-control" id="time" name="time" [(ngModel)]="scheduleRequest.time">
+  </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary" (click)="scheduleCleaner()">Schedule</button>
+
+
+
+
+
+
+
+
+</div>
+
+

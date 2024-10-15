@@ -1,0 +1,39 @@
+
+
+ <div *ngIf="checkUserReadAuthorization; else noReadRole">
+  <h5>List of all Users</h5>
+  <hr>
+  <!--Korisnik ne moze da klikne na usera ukoliko nema edit privilegiju-->
+ <div *ngFor="let user of userList; let i = index;">
+
+   <div *ngIf="checkUserEditAuthorization()" appHoverEffect (click)="goToUserPage(user)">
+     <p><b>Id:</b>{{ user.id }}</p>
+     <p><b>Email:</b>{{ user.email }}</p>
+     <p><b>Name:</b>{{ user.name }}</p>
+     <p><b>Roles</b>: {{ getRolesString(user) }}</p>
+     <button *ngIf="checkUserDeleteAuthorization()" class="btn-primary btn" (click)="deleteUser(user)" style="background-color: #e87b7b;">Delete User</button>
+     <hr>
+   </div>
+
+   <div *ngIf="!checkUserEditAuthorization()">
+     <p><b>Id:</b>{{ user.id }}</p>
+     <p><b>Email:</b>{{ user.email }}</p>
+     <p><b>Name:</b>{{ user.name }}</p>
+     <p><b>Roles</b>: {{ getRolesString(user) }}</p>
+     <button *ngIf="checkUserDeleteAuthorization()" class="btn-primary btn" (click)="deleteUser(user)" style="background-color: #e87b7b;">Delete User</button>
+     <hr>
+   </div>
+ </div>
+ </div>
+
+
+
+ <ng-template #noReadRole>
+   <h1>Nemate prava da citate korisnike</h1>
+ </ng-template>
+
+
+
+
+
+

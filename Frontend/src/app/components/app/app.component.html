@@ -1,0 +1,44 @@
+
+<!-- Prikazujem navbar nad celom aplikacijom samo ako je korisnik ulogovan-->
+<div class="container pt-3" *ngIf="isUserLoggedIn()">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <a class="nav-link fw-bold" (click)="navigateToAllUsers()">All Users</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isUserAuthorizedForCreatingUsers()">
+          <a class="nav-link fw-bold" (click)="navigateToCreateUser()">Create Users</a>
+        </li>
+
+
+        <li class="nav-item" >
+          <a class="nav-link fw-bold" (click)="navigateToCleaners()">Search Cleaners</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isUserAuthorizedForAddingCleaners()">
+          <a class="nav-link fw-bold" (click)="navigateToAddCleaners()">Add Cleaner</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link fw-bold" (click)="navigateToMessageHistory()">MessageHistorys</a>
+        </li>
+
+
+      </ul>
+    </div>
+
+    <!-- Logout button on the right edge -->
+    <div class="navbar-nav">
+      <button class="btn btn-link nav-link px-5 fw-bold" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+
+</div>
+
+<div class="container pt-3">
+  <router-outlet></router-outlet>
+</div>

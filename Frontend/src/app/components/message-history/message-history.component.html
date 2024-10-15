@@ -1,0 +1,15 @@
+
+
+  <h3>Vasa Lista Gresaka</h3>
+  <hr>
+  <div *ngFor="let message of errorMessages; let i = index;">
+
+      <p><b>Id: </b> {{ message.id }}</p>
+      <p><b>Date </b>: {{ message.date }}</p>
+      <p><b>Action: </b> {{ message.action }}</p>
+      <p><b>Message: </b> {{ message.message }}</p>
+      <hr>
+  </div>
+
+
+

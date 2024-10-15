@@ -1,0 +1,113 @@
+
+<div *ngIf="checkSearchCleanersAuthorization(); else noSearchRole">
+
+  <div>
+    <label>Machine status:</label>
+    <div class="form-check">
+      <input [(ngModel)]="runningStatus" class="form-check-input" type="checkbox" value="RUNNING" id="defaultCheck1">
+      <label class="form-check-label" for="defaultCheck1">RUNNING</label>
+    </div>
+    <div class="form-check">
+      <input [(ngModel)]="stoppedStatus" class="form-check-input" type="checkbox" value="STOPPED" id="defaultCheck2">
+      <label class="form-check-label" for="defaultCheck2">STOPPED</label>
+    </div>
+    <div class="form-check">
+      <input [(ngModel)]="dischargingStatus" class="form-check-input" type="checkbox" value="DISCHARGING" id="defaultCheck3">
+      <label class="form-check-label" for="defaultCheck2">DISCHARGING</label>
+    </div>
+    <br>
+      <div class="form-group mb-2">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Cleaners Name"
+               [(ngModel)]="name">
+
+        <label for="dateFrom">Date from:</label>
+        <input  type="date" class="form-control" id="dateFrom" name="dateFrom" placeholder="Pick date from"
+               [(ngModel)]="dateFrom ">
+
+        <label for="dateTo">Date to:</label>
+        <input  type="date" class="form-control" id="dateTo" name="dateTo" placeholder="Pick date to"
+               [(ngModel)]="dateTo ">
+
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="filter()">Search</button>
+      <hr>
+
+  </div>
+
+  <h3>Lista usisivaca koji su aktivni u sistemu:</h3>
+  <hr>
+  <div  *ngFor="let cleaner of currentShownCleaners; let i = index;">
+    <div *ngIf="cleaner.active == true" [ngStyle]="{'background-color': cleaner.blocked ? '#acc521' : ''}">
+      <div  *ngIf="checkDischargeAuth()" appHoverEffect >
+        <p><b>Id: </b> {{ cleaner.id }}</p>
+        <p><b>Name: </b> {{ cleaner.name }}</p>
+        <p><b>In-System: </b> {{ cleaner.active }}</p>
+        <p><b>Status </b>: {{ cleaner.status }}</p>
+        <p><b>CreationDate</b>: {{ cleaner.creationDate }}</p>
+        <p><b>User </b>: {{ cleaner.user.email }}</p>
+        <button *ngIf="checkStartAuth()"   class="btn-primary btn"   [disabled]=cleaner.blocked (click)="startCleaner(cleaner)" style="background-color: #40b433;">Start</button>
+        <button *ngIf="checkStopAuth()"  class="btn-primary btn"  [disabled]=cleaner.blocked (click)="stopCleaner(cleaner)" style="background-color: #ecde25;">Stop</button>
+        <button *ngIf="checkRemoveAuth()"  class="btn-primary btn" (click)="removeCleaner(cleaner)" [disabled]=cleaner.blocked style="background-color: #e87b7b;">Remove</button>
+        <button *ngIf="checkDischargeAuth()"  class="btn-primary btn" [disabled]=cleaner.blocked (click)="dischargeCleaner(cleaner)" style="background-color: #59bbde;">Discharge</button>
+        <button  class="btn-primary btn" [disabled]=cleaner.blocked (click)="goToSchedulingPage(cleaner)" style="background-color: #df97fd;">Schedule</button>
+        <hr>
+      </div>
+
+      <div  *ngIf="!checkDischargeAuth() ">
+
+        <p ><b>Id: </b> {{ cleaner.id }}</p>
+        <p><b>Name: </b> {{ cleaner.name }}</p>
+        <p><b>In-System: </b> {{ cleaner.active }}</p>
+        <p><b>Status </b>: {{ cleaner.status }}</p>
+        <p><b>CreationDate</b>: {{ cleaner.creationDate }}</p>
+        <p><b>User </b>: {{ cleaner.user.email }}</p>
+        <button *ngIf="checkStartAuth()"  class="btn-primary btn" [id]="'startButton'+cleaner.id"  [disabled]=cleaner.blocked (click)="startCleaner(cleaner)" style="background-color: #40b433;">Start</button>
+        <button *ngIf="checkStopAuth()"  class="btn-primary btn" [id]="'stopButton' + cleaner.id" [disabled]=cleaner.blocked (click)="stopCleaner(cleaner)" style="background-color: #ecde25;">Stop</button>
+        <button *ngIf="checkRemoveAuth()"  class="btn-primary btn" (click)="removeCleaner(cleaner)" [disabled]=cleaner.blocked style="background-color: #e87b7b;">Remove</button>
+        <button *ngIf="checkDischargeAuth()" [id]="'dischargeButton' + cleaner.id" class="btn-primary btn" [disabled]=cleaner.blocked (click)="dischargeCleaner(cleaner)" style="background-color: #59bbde;">Discharge</button>
+        <hr>
+
+      </div>
+
+    </div>
+
+<!--    <div *ngIf="cleaner.active == true">-->
+<!--      <p><b>Id: </b> {{ cleaner.id }}</p>-->
+<!--      <p><b>Name: </b> {{ cleaner.name }}</p>-->
+<!--      <p><b>In-System: </b> {{ cleaner.active }}</p>-->
+<!--      <p><b>Status </b>: {{ cleaner.status }}</p>-->
+<!--      <p><b>CreationDate</b>: {{ cleaner.creationDate }}</p>-->
+<!--      <p><b>User </b>: {{ cleaner.user.email }}</p>-->
+<!--      <button *ngIf="checkStartAuth()"  class="btn-primary btn" [id]="'startButton'+cleaner.id"  [disabled]=cleaner.blocked (click)="startCleaner(cleaner)" style="background-color: #40b433;">Start</button>-->
+<!--      <button *ngIf="checkStopAuth()"  class="btn-primary btn" [id]="'stopButton' + cleaner.id" [disabled]=cleaner.blocked (click)="stopCleaner(cleaner)" style="background-color: #ecde25;">Stop</button>-->
+<!--      <button *ngIf="checkRemoveAuth()"  class="btn-primary btn" (click)="removeCleaner(cleaner)" [disabled]=cleaner.blocked style="background-color: #e87b7b;">Remove</button>-->
+<!--      <button *ngIf="checkDischargeAuth()" [id]="'dischargeButton' + cleaner.id" class="btn-primary btn" [disabled]=cleaner.blocked (click)="dischargeCleaner(cleaner)" style="background-color: #59bbde;">Discharge</button>-->
+<!--      <hr>-->
+<!--    </div>-->
+
+
+  </div>
+<h2>Usisivaci koji su izbaceni iz sistema (ali i dalje u bazi)</h2>
+
+
+
+<div *ngFor="let cleaner of currentShownCleaners; let i = index;">
+  <div *ngIf="cleaner.active == false" style="background-color: #f8b0b0">
+    <p><b>Id: </b> {{ cleaner.id }}</p>
+    <p><b>Name: </b> {{ cleaner.name }}</p>
+    <p><b>In-System: </b> {{ cleaner.active }}</p>
+    <p><b>Status </b>: {{ cleaner.status }}</p>
+    <p><b>CreationDate</b>: {{ cleaner.creationDate }}</p>
+    <p><b>User </b>: {{ cleaner.user.email }}</p>
+    <hr>
+  </div>
+</div>
+</div>
+
+
+
+
+<ng-template #noSearchRole>
+  <h1>Nemate prava da pretrazujete Usisivace</h1>
+</ng-template>
