@@ -31,7 +31,7 @@ Frontend:
 - **TypeScript**
 - **npm (Node Package Manager)**
 - **Angular**
-- 
+  
 ## Prerequisites
 To run this project locally, you need to have the following programs installed on your local machine:
 - **Java Development Kit (JDK)**: Version 11 or higher.
