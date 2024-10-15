@@ -27,7 +27,7 @@ Backend:
 - **Swagger**: Tool for API documentation.
 - **Lombok**: Java library that helps to reduce boilerplate code.
 
-- Frontend:
+Frontend:
 - **TypeScript**: A statically typed superset of JavaScript that compiles to plain JavaScript. TypeScript enhances code robustness and maintainability.
 - **npm (Node Package Manager)**: A package manager for JavaScript that enables dependency management and script execution. npm is essential for installing and managing the libraries and tools required by the project.
 - **Angular**: A platform and framework designed for building single-page applications using HTML and TypeScript. Angular provides a solid structure for developing scalable web applications.
