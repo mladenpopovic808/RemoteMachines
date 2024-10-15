@@ -36,5 +36,25 @@ To run this project locally, you need to have the following programs installed o
 ## Installation
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-username/domaci3.git
-   cd domaci3
+   git clone https://github.com/mpopovic9720rn/VacuumCleaners-Springboot-Backend.git
+   cd VacuumCleaners-Springboot-Backend
+
+    Install dependencies:
+
+    bash
+
+mvn clean install
+
+Set up Redis:
+
+    Download and install Redis from Redis.io.
+    Start the Redis server:
+
+    bash
+
+    redis-server
+
+Set up MySQL (if applicable):
+
+    Download and install MySQL from MySQL.com.
+    Create a database and configure the connection settings in application.properties.
