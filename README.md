@@ -1,8 +1,8 @@
 # VacuumCleaners
 
-## Domaci3 Application
 
-The Domaci3 Application is a Spring Boot-based project designed to manage users and their roles. It provides functionalities such as user registration, role assignment, and user authentication. The application leverages various Spring Boot modules and integrates with several external libraries and tools to provide a comprehensive solution for user management.
+
+Application is a Spring Boot-based project designed to manage users and their roles. It provides functionalities such as user registration, role assignment, and user authentication. The application leverages various Spring Boot modules and integrates with several external libraries and tools to provide a comprehensive solution for user management.
 
 ## Features
 - User registration and management
