@@ -2,7 +2,7 @@
 
 
 
-Application is a Spring Boot-based project designed to manage users and their roles. It provides functionalities such as user registration, role assignment, and user authentication. The application leverages various Spring Boot modules and integrates with several external libraries and tools to provide a comprehensive solution for user management.
+The Vacuum Cleaner Management Application is a Spring Boot-based project designed to manage vacuum cleaners. It provides functionalities such as adding, creating, and starting vacuum cleaners. The application also uses a scheduler to automate the starting of vacuum cleaners at specified times. 
 
 ## Features
 - User registration and management
