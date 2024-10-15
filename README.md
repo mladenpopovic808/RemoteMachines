@@ -21,11 +21,12 @@ Backend:
 - **Spring Boot Starter Thymeleaf**
 - **Spring Boot Starter Data Redis**
 - **Maven**: Build and dependency management tool.
-- **Redis**: In-memory data structure store, used as a database, cache, and message broker.
+- **Redis**: Used as caching system.
 - **JUnit**: Testing framework for unit tests.
 - **Cucumber**: Testing framework for behavior-driven development (BDD).
 - **Swagger**: Tool for API documentation.
 - **Lombok**: Java library that helps to reduce boilerplate code.
+- **MySQL**
 
 Frontend:
 - **TypeScript**
