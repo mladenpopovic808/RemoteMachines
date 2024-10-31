@@ -27,11 +27,10 @@ Feature: User Management
     Given a user with id 1 exists
     When I update user id 1 with new name "Updated User" and new lastName "Updated"
     Then the response status should be 200
-    And the response should contain updated user details
-    And the user's name should be "Updated User"
+    And the response should contain updated user name "Updated User" and new last name "Updated"
 
   Scenario: Delete User
-    Given a user with id 1 exists
-    When I request to delete user by id 1
+    Given a user with id 2 exists
+    When I request to delete user by id 2
     Then the response status should be 200
-    And the user with id 1 should no longer exist in the database
+    And the user with id 2 should no longer exist in the database

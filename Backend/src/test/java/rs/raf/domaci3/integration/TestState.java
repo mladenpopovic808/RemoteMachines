@@ -1,4 +1,4 @@
-package rs.raf.domaci3.integration.userController;
+package rs.raf.domaci3.integration;
 
 
 import lombok.AllArgsConstructor;
@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserControllerState {
+public class TestState {
 
     String jwtToken;
+    int actualResponseStatus;
 }

@@ -44,14 +44,14 @@ public class AsyncCleanerService {
             }
             if(cleaner.isActive()){
                 if(cleaner.getStatus()== Status.STOPPED){
-                    System.out.println("Starting cleaner...");
+                    System.out.println("Starting cleaner "+cleaner.getId());
                     cleaner.setBlocked(true);
                     cleanerRepository.save(cleaner);
                     Thread.sleep(4000); //TODO povecati posle
                     cleaner.setStatus(Status.RUNNING);
                     cleaner.setBlocked(false);
                     cleanerRepository.save(cleaner);
-                    System.out.println("Cleaner is STARTED!");
+                    System.out.println("Cleaner "+cleaner.getId()+ " is STARTED!");
                 }else if(scheduled){
 
                     errorMessageRepository.save(new ErrorMessage(0L,"Cleaner is not STOPPED","START", LocalDate.now(),cleaner));

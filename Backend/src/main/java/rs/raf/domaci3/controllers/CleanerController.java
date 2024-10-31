@@ -39,8 +39,8 @@ public class CleanerController {
 
 
     @GetMapping(value ="/getCleaner/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public Optional<Cleaner> findCleanerById(@PathVariable("id") Long id){
-        return cleanerService.findById(id);
+    public Cleaner findCleanerById(@PathVariable("id") Long id){
+        return cleanerService.findById(id).get();
     }
 
 

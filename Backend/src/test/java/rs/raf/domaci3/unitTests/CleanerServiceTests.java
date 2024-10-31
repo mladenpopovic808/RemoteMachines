@@ -27,6 +27,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class CleanerServiceTests {
 
+
     @Mock
     private CleanerRepository cleanerRepository;
 
@@ -89,22 +90,6 @@ public class CleanerServiceTests {
         verify(cleanerRepository).findAllByUser(any());
     }
 
-//    @Test
-//    public void searchCleaners_Test() {
-//        String name = "Cleaner";
-//        List<String> statuses = Arrays.asList("STOPPED");
-//        LocalDate dateFrom = LocalDate.now().minusDays(1);
-//        LocalDate dateTo = LocalDate.now().plusDays(1);
-//        String userMail = "test@mail.com";
-//
-//        Cleaner cleaner = new Cleaner(1L, name, true, Status.STOPPED, LocalDate.now(), null, false, 0);
-//        when(userRepository.findByEmail(userMail)).thenReturn(null); // Mock user lookup
-//        when(cleanerRepository.findAllByUser(any())).thenReturn(Collections.singletonList(cleaner));
-//
-//        Collection<Cleaner> result = cleanerService.searchCleaners(name, statuses, dateFrom, dateTo, userMail);
-//
-//        assertEquals(1, result.size());
-//    }
 
     @Test
     public void removeCleaner_Test_CleanerExists() {
@@ -216,7 +201,10 @@ public class CleanerServiceTests {
         verify(taskScheduler).schedule(any(), any(Date.class));
     }
 
+
     // Additional tests for private methods can be added if needed
 
     // Optionally, test the private methods (doesCleanerContainsName, doesCleanerContainsStatus, isCleanerBetweenDates) if you decide to refactor them to package-private
+
+
 }

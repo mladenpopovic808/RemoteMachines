@@ -6,13 +6,14 @@ import lombok.NoArgsConstructor;
 import rs.raf.domaci3.model.status.Status;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cleaner {
+public class Cleaner implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,5 +38,7 @@ public class Cleaner {
     private boolean blocked; // bice blocked ako se nad njim izvrsava start/stop/discharge
 
     @Column int cycleCounter; //running-stopped ciklusi
+
+
 
 }

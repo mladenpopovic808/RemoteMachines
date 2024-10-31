@@ -6,13 +6,16 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import rs.raf.domaci3.model.Cleaner;
 import rs.raf.domaci3.model.Role;
 import rs.raf.domaci3.model.User;
 import rs.raf.domaci3.model.dto.UserDto;
+import rs.raf.domaci3.model.status.Status;
 import rs.raf.domaci3.repositories.RoleRepository;
 import rs.raf.domaci3.repositories.UserRepository;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -113,4 +116,11 @@ public class UserService implements UserServiceInterface {
     public void deleteUser(Long id) {
          userRepository.deleteById(id);
     }
+
+    public  Cleaner createCleaner(String name, String userEmail){
+        return new Cleaner(0L,name,
+                true,Status.STOPPED,
+                LocalDate.now(),userRepository.findByEmail(userEmail),false,0);
+    }
+
 }

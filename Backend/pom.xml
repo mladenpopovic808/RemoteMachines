@@ -109,6 +109,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- kod integracionih, da bi localdate mogao da se serijalizuje -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit-platform-engine</artifactId>

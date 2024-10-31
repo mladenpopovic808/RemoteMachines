@@ -27,8 +27,9 @@ public class SwaggerConfig {
                         .license(new License().name(APP_LICENSE).url(APP_LICENSE_URL)));
     }
 
-    @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapper();
-    }
+    //zakomentarisao zato sto sam definisamo objectMapper u jackson configu. Postojao je problem sa serijalizacijom locladate-a
+//    @Bean
+//    public ObjectMapper objectMapper() {
+//        return new ObjectMapper();
+//    }
 }
