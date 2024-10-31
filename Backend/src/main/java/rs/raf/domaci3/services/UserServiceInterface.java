@@ -5,11 +5,10 @@ import rs.raf.domaci3.model.User;
 import rs.raf.domaci3.model.dto.UserDto;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserServiceInterface {
 
-    Optional<User> getUserById(Long id);
+    User getUserById(Long id);
     List<User>getAllUsers();
 
     User addUser(User user);

@@ -42,9 +42,6 @@ public class BootstrapData implements CommandLineRunner {
         roleService.addRole(new Role(null,"can_remove_cleaners"));
         roleService.addRole(new Role(null,"can_schedule_cleaners"));
 
-
-
-
         userService.addUser(new User(null,"Admin","Popovic","admin@raf.rs","123"));
         userService.addUser(new User(null,"User1","Popovic","user1@raf.rs","123"));
         userService.addUser(new User(null,"User2","Popovic","user2@raf.rs","123"));

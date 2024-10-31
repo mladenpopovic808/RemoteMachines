@@ -1,4 +1,4 @@
-package rs.raf.domaci3;
+package rs.raf.domaci3.unitTests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,8 +15,6 @@ import rs.raf.domaci3.repositories.ErrorMessageRepository;
 import rs.raf.domaci3.repositories.UserRepository;
 import rs.raf.domaci3.services.AsyncCleanerService;
 
-import javax.transaction.Transactional;
-import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

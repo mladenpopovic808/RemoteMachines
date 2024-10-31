@@ -16,7 +16,6 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService implements UserServiceInterface {
@@ -36,8 +35,8 @@ public class UserService implements UserServiceInterface {
     //Redis pokreni sa redis-server u command promptu
     @Cacheable(value = "userById", key = "#id")
     @Override
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
+    public User getUserById(Long id) {
+        return userRepository.findById(id).get();
     }
 
     @Override

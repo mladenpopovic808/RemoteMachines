@@ -1,4 +1,4 @@
-package rs.raf.domaci3;
+package rs.raf.domaci3.unitTests;
 
 
 import org.junit.jupiter.api.Test;

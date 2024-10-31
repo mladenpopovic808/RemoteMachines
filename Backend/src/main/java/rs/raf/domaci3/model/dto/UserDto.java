@@ -6,6 +6,7 @@ import rs.raf.domaci3.model.Role;
 
 @Data
 @ToString
+
 public class UserDto {
     private Long id;
     private String name;
